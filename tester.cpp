@@ -1,5 +1,6 @@
 #include <iostream>
 #include "HealthPoints.h"
+#include "Queue.h"
 
 using std::cout;
 using std::endl;
@@ -7,6 +8,7 @@ using std::endl;
 #define DIVIDER "=========="
 
 int main() {
+    /*
     cout << DIVIDER << " Default Constructor " << DIVIDER << endl;
     HealthPoints hp1;
     cout << hp1 << endl;
@@ -33,7 +35,7 @@ int main() {
     cout << hp4 << endl;
 
     cout << DIVIDER << " + Operator " << DIVIDER << endl;
-    HealthPoints hp5 = hp4 + 10;
+    HealthPoints hp5 = 10 + hp4;
     cout << hp5 << endl;
 
     cout << DIVIDER << " - Operator " << DIVIDER << endl;
@@ -57,6 +59,18 @@ int main() {
 
     cout << DIVIDER << " >= Operator " << DIVIDER << endl;
     cout << (hp6 >= hp5) << endl;
+    */
+
+    Queue<int> q;
+    q.pushBack(4);
+    q.pushBack(12);
+    q.pushBack(32);
+
+    const Queue<int> cq = q;
+
+    for(Queue<int>::ConstIterator it = cq.begin(); it != cq.end(); ++it) {
+       cout << "node" << endl;
+    }
 
     return 0;
 }
