@@ -47,9 +47,19 @@ HealthPoints operator+(const HealthPoints& hp, const int hpToAdd) {
     return result;
 }
 
+HealthPoints operator+(const int hpToAdd, const HealthPoints& hp) {
+    HealthPoints result = hp + hpToAdd;
+    return result;
+}
+
 HealthPoints operator-(const HealthPoints& hp, const int hpToSubtract) {
     HealthPoints result = hp;
     result -= hpToSubtract;
+    return result;
+}
+
+HealthPoints operator-(const int hpToSubtract, const HealthPoints& hp) {
+    HealthPoints result = hp - hpToSubtract;
     return result;
 }
 

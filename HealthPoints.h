@@ -1,3 +1,6 @@
+#ifndef HEALTH_POINTS_H
+#define HEALTH_POINTS_H
+
 using std::ostream;
 
 class HealthPoints {
@@ -67,6 +70,7 @@ public:
      * @return HealthPoints Temporary health points object with sum of input health points objects
      */
     friend HealthPoints operator+(const HealthPoints& hp, const int hpToAdd);
+    friend HealthPoints operator+(const int hpToAdd, const HealthPoints& hp);
 
     /**
      * @brief Subtract two health points objects (subtraction of their current health points)
@@ -76,6 +80,7 @@ public:
      * @return HealthPoints Temporary health points object with difference of input health points objects
      */
     friend HealthPoints operator-(const HealthPoints& hp, const int hpToSubtract);
+    friend HealthPoints operator-(const int hpToSubtract, const HealthPoints& hp);
 
     /**
      * @brief Check if two health points objects have same amount of current health points
@@ -154,3 +159,4 @@ private:
 
 };
 
+#endif //HEALTH_POINTS_H
