@@ -293,7 +293,7 @@ typename Queue<T>::ConstIterator Queue<T>::begin() const {
 template<class T>
 typename Queue<T>::Iterator Queue<T>::end() {
     if(this->m_size == 0) {
-        throw Queue<T>::EmptyQueue();
+        //throw Queue<T>::EmptyQueue();
     }
     return Iterator(nullptr);
 }
