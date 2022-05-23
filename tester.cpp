@@ -7,6 +7,14 @@ using std::endl;
 
 #define DIVIDER "=========="
 
+static int isEven(int n) {
+        return n%2==1;
+}
+
+static void setFortyTwo(int &n) {
+    n = 42;
+}
+
 int main() {
     /*
     cout << DIVIDER << " Default Constructor " << DIVIDER << endl;
@@ -61,15 +69,21 @@ int main() {
     cout << (hp6 >= hp5) << endl;
     */
 
+    
+
     Queue<int> q;
     q.pushBack(4);
     q.pushBack(12);
     q.pushBack(32);
+    q.pushBack(5);
+    q.pushBack(25);
+    q.pushBack(8);
+    q.pushBack(9);
 
-    const Queue<int> cq = q;
+    transform(q, setFortyTwo);
 
-    for(Queue<int>::ConstIterator it = cq.begin(); it != cq.end(); ++it) {
-       cout << "node" << endl;
+    for(Queue<int>::Iterator it = q.begin(); it != q.end(); ++it) {
+       cout << *it << endl;
     }
 
     return 0;

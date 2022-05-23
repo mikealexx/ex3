@@ -9,6 +9,8 @@
                 "-g",
                 "${file}",
                 "HealthPoints.cpp",
+                "HealthPointsExampleTest.cpp",
+                "QueueExampleTests.cpp",
                 "-Wall",
                 "-pedantic-errors",
                 "-o",
