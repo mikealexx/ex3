@@ -3,7 +3,8 @@
 
 using std::ostream;
 
-class HealthPoints {
+class HealthPoints 
+{
 
     int m_maxHP;
     int m_hp;

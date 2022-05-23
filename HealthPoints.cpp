@@ -15,7 +15,8 @@ HealthPoints::HealthPoints(const int maxHP):
     }
 }
 
-HealthPoints& HealthPoints::operator+=(const int hpToAdd) {
+HealthPoints& HealthPoints::operator+=(const int hpToAdd)
+{
     if(this->m_hp+hpToAdd > this->m_maxHP) {
         this->m_hp = this->m_maxHP;
     }
@@ -28,7 +29,8 @@ HealthPoints& HealthPoints::operator+=(const int hpToAdd) {
     return *this;
 }
 
-HealthPoints& HealthPoints::operator-=(const int hpToSubtract) {
+HealthPoints& HealthPoints::operator-=(const int hpToSubtract)
+{
     if(this->m_hp-hpToSubtract > this->m_maxHP) {
         this->m_hp = this->m_maxHP;
     }
@@ -41,53 +43,64 @@ HealthPoints& HealthPoints::operator-=(const int hpToSubtract) {
     return *this;
 }
 
-HealthPoints operator+(const HealthPoints& hp, const int hpToAdd) {
+HealthPoints operator+(const HealthPoints& hp, const int hpToAdd)
+{
     HealthPoints result = hp;
     result += hpToAdd;
     return result;
 }
 
-HealthPoints operator+(const int hpToAdd, const HealthPoints& hp) {
+HealthPoints operator+(const int hpToAdd, const HealthPoints& hp)
+{
     HealthPoints result = hp + hpToAdd;
     return result;
 }
 
-HealthPoints operator-(const HealthPoints& hp, const int hpToSubtract) {
+HealthPoints operator-(const HealthPoints& hp, const int hpToSubtract)
+{
     HealthPoints result = hp;
     result -= hpToSubtract;
     return result;
 }
 
-HealthPoints operator-(const int hpToSubtract, const HealthPoints& hp) {
+HealthPoints operator-(const int hpToSubtract, const HealthPoints& hp)
+{
     HealthPoints result = hp - hpToSubtract;
     return result;
 }
 
-bool operator==(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator==(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return hp1.m_hp == hp2.m_hp;
 }
 
-bool operator!=(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator!=(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return !(hp1 == hp2);
 }
 
-bool operator<(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator<(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return hp1.m_hp < hp2.m_hp;
 }
 
-bool operator>(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator>(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return hp1.m_hp > hp2.m_hp;
 }
 
-bool operator<=(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator<=(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return !(hp1 > hp2);
 }
 
-bool operator>=(const HealthPoints& hp1, const HealthPoints& hp2) {
+bool operator>=(const HealthPoints& hp1, const HealthPoints& hp2)
+{
     return !(hp1 < hp2);
 }
 
-ostream& operator<<(ostream& os, const HealthPoints& hp) {
+ostream& operator<<(ostream& os, const HealthPoints& hp)
+{
     os << hp.m_hp << "(" << hp.m_maxHP << ")";
     return os;
 }
