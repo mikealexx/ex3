@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include <cstddef>
+#include <new>
 
 //=========================================== Queue Declerations ===========================================
 
@@ -200,7 +200,12 @@ template<class T>
 Queue<T>::Queue(const Queue<T> &other): m_head(nullptr), m_size(0)
 {
     for(Queue<T>::ConstIterator it = other.begin(); it != other.end(); ++it) {
-        this->pushBack(*it);
+        try {
+            this->pushBack(*it);
+        }
+        catch(std::bad_alloc &e) {
+            throw std::bad_alloc();
+        }
     }
 }
 
@@ -240,7 +245,7 @@ void Queue<T>::pushBack(const T data)
         return;
     }
     Node* ptr = this->m_head;
-    while(ptr->m_next != NULL) {
+    while(ptr->m_next != nullptr) {
         ptr = ptr->m_next;
     }
     ptr->m_next = newNode;
@@ -330,13 +335,13 @@ template<class T>
 Queue<T>::Node::Node():
     m_data()
 {
-    this->m_next = NULL;
+    this->m_next = nullptr;
 }
 
 template<class T>
 Queue<T>::Node::Node(T data): m_data(data)
 {
-    this->m_next = NULL;
+    this->m_next = nullptr;
 }
 
 template<class T>
