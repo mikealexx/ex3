@@ -15,6 +15,16 @@ HealthPoints::HealthPoints(const int maxHP):
     }
 }
 
+HealthPoints& HealthPoints::operator=(const int hp) 
+{
+    if(hp <= 0) {
+        throw HealthPoints::InvalidArgument();
+    }
+    this->m_maxHP = hp;
+    this->m_hp = this->m_maxHP;
+    return *this;
+}
+
 HealthPoints& HealthPoints::operator+=(const int hpToAdd)
 {
     if(this->m_hp+hpToAdd > this->m_maxHP) {

@@ -1,6 +1,7 @@
 #ifndef HEALTH_POINTS_H
 #define HEALTH_POINTS_H
 
+#include <iostream>
 using std::ostream;
 
 class HealthPoints 
@@ -46,6 +47,7 @@ public:
      * @return HealthPoints& Updated health points object
      */
     HealthPoints& operator=(const HealthPoints& other) = default;
+    HealthPoints& operator=(const int hp);
 
     /**
      * @brief Add input amount of health points to current health points (can't exceed maximum health points)
@@ -153,10 +155,6 @@ public:
     friend ostream& operator<<(ostream& os, const HealthPoints& hp);
 
     class InvalidArgument {};
-
-private:
-
-    
 
 };
 
