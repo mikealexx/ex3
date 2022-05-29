@@ -191,7 +191,7 @@ public:
 
 };
 
-//=========================================== Queue Definitions ===========================================
+//=========================================== Queue Implementations ===========================================
 
 template<class T>
 Queue<T>::Queue(): m_head(nullptr), m_size(0) {}
@@ -329,7 +329,7 @@ typename Queue<T>::ConstIterator Queue<T>::end() const
     return ConstIterator(nullptr);
 }
 
-//=========================================== Node Definitions ===========================================
+//=========================================== Node Implementation ===========================================
 
 template<class T>
 Queue<T>::Node::Node():
