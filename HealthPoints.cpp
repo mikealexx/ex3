@@ -73,12 +73,6 @@ HealthPoints operator-(const HealthPoints& hp, const int hpToSubtract)
     return result;
 }
 
-HealthPoints operator-(const int hpToSubtract, const HealthPoints& hp)
-{
-    HealthPoints result = hp - hpToSubtract;
-    return result;
-}
-
 bool operator==(const HealthPoints& hp1, const HealthPoints& hp2)
 {
     return hp1.m_hp == hp2.m_hp;
