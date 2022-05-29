@@ -58,7 +58,7 @@ public:
      * 
      * @return T The first data
      */
-    T& front();
+    T& front() const;
 
     /**
      * @brief Remove the first data in queue
@@ -71,7 +71,7 @@ public:
      * 
      * @return int The size of the queue
      */
-    int size();
+    int size() const;
 
     class Iterator;
 
@@ -253,7 +253,7 @@ void Queue<T>::pushBack(const T data)
 }
 
 template<class T>
-T& Queue<T>::front()
+T& Queue<T>::front() const
 {
     if(this->m_size == 0) {
         throw Queue<T>::EmptyQueue();
@@ -274,7 +274,7 @@ void Queue<T>::popFront()
 }
 
 template<class T>
-int Queue<T>::size()
+int Queue<T>::size() const
 {
     return this->m_size;
 }

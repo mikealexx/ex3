@@ -3,17 +3,21 @@
 #include "Queue.h"
 
 using std::cout;
+using std::cin;
 using std::endl;
 
 #define DIVIDER "=========="
 
 static int isEven(int n) {
-        return n%2==1;
+    int i;
+    cin >> i;
+    return n%i==0;
 }
 
+/*
 static void setFortyTwo(int &n) {
     n = 42;
-}
+}*/
 
 int main() {
     /*
@@ -72,19 +76,11 @@ int main() {
     
 
     Queue<int> q;
-    q.pushBack(4);
-    q.pushBack(12);
-    q.pushBack(32);
-    q.pushBack(5);
-    q.pushBack(25);
+    q.pushBack(6);
     q.pushBack(8);
-    q.pushBack(9);
+    q.pushBack(7);
 
-    transform(q, setFortyTwo);
-
-    for(Queue<int>::Iterator it = q.begin(); it != q.end(); ++it) {
-       cout << *it << endl;
-    }
+    Queue<int> fq = filter(q, isEven);
 
     return 0;
 }
