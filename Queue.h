@@ -200,12 +200,7 @@ template<class T>
 Queue<T>::Queue(const Queue<T> &other): m_head(nullptr), m_size(0)
 {
     for(Queue<T>::ConstIterator it = other.begin(); it != other.end(); ++it) {
-        try {
-            this->pushBack(*it);
-        }
-        catch(std::bad_alloc &e) {
-            throw std::bad_alloc();
-        }
+        this->pushBack(*it);
     }
 }
 
