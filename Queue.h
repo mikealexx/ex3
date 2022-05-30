@@ -113,6 +113,12 @@ public:
     Node();
 
     /**
+     * @brief Destroy the Node object
+     * 
+     */
+    ~Node() = default;
+
+    /**
      * @brief Construct a new copy of Node
      * 
      * @param data The data to copy from
