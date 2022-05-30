@@ -1,7 +1,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include <new>
 
 //=========================================== Queue Declerations ===========================================
 
@@ -107,10 +106,24 @@ public:
     T m_data;
     Node* m_next;
 
+    /**
+     * @brief Construct a new Node
+     * 
+     */
     Node();
 
+    /**
+     * @brief Construct a new copy of Node
+     * 
+     * @param data The data to copy from
+     */
     Node(T data);
 
+    /**
+     * @brief Dereference operator
+     * 
+     * @return Node& Dereferenced node
+     */
     Node& operator*();
 
 };
@@ -123,6 +136,11 @@ class Queue<T>::Iterator
 
     Node* m_node;
 
+    /**
+     * @brief Construct a new Iterator pointing to a node
+     * 
+     * @param node The node to point to
+     */
     Iterator(Node* node):
         m_node(node)
     {}
@@ -130,6 +148,11 @@ class Queue<T>::Iterator
     friend class Queue<T>;
 
 public:
+    /**
+     * @brief Update the iterator to point to the following node
+     * 
+     * @return Iterator The updated iterator
+     */
     Iterator operator++()
     {
         if(this->m_node == nullptr) {
@@ -139,11 +162,23 @@ public:
         return *this;
     }
 
+    /**
+     * @brief Check whether two iterators point to different nodes
+     * 
+     * @param other The other iterator to compare to
+     * @return true If the two iterators point to different nodes
+     * @return false otherwise
+     */
     bool operator!=(Iterator other)
     {
         return this->m_node != other.m_node;
     }
 
+    /**
+     * @brief Dereference the iterator AKA return the data it's pointing to
+     * 
+     * @return T& The data the iterator points to
+     */
     T& operator*()
     {
         return this->m_node->m_data;
@@ -161,6 +196,11 @@ class Queue<T>::ConstIterator
 
     Node* m_node;
 
+    /**
+     * @brief Construct a new ConstIterator pointing to a node
+     * 
+     * @param node The node to point to
+     */
     ConstIterator(Node* node):
         m_node(node)
     {}
@@ -168,6 +208,11 @@ class Queue<T>::ConstIterator
     friend class Queue<T>;
 
 public:
+    /**
+     * @brief Update the const iterator to point to the following node
+     * 
+     * @return ConstIterator The updated const iterator
+     */
     ConstIterator operator++()
     {
         if(this->m_node == nullptr) {
@@ -177,11 +222,23 @@ public:
         return *this;
     }
 
+    /**
+     * @brief Check whether two cosnt iterators point to different nodes
+     * 
+     * @param other The other const iterator to compare to
+     * @return true If the two const iterators point to different nodes
+     * @return false otherwise
+     */
     bool operator!=(ConstIterator other)
     {
         return this->m_node != other.m_node;
     }
 
+    /**
+     * @brief Dereference the const iterator AKA return the data it's pointing to
+     * 
+     * @return T& The data the const iterator points to
+     */
     T& operator*()
     {
         return this->m_node->m_data;
